@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Contact">
+
+<insert id="insertFeedback" parameterType="map">
+        insert into public.contact( name,email,subject,feedback,status,reply ) values(#{T.name},#{T.email},#{T.subject},#{T.feedback},#{T.status},#{T.reply});
+</insert>
+
+<select id="viewFeedbacks" resultType="map">
+		SELECT name,email,subject,feedback,status,reply from public.contact where status!='Terminated';
+</select>
+
+<update id="deleteFeedback" parameterType="Contact">
+		update public.contact SET status='Terminated' where name=#{T.name} AND email=#{T.email} AND feedback=#{T.feedback};
+</update>
+
+<update id="sendReply"  parameterType="map">
+		update public.contact SET reply=#{T.reply} where name=#{T.name} AND email=#{T.email} AND feedback=#{T.feedback};
+</update>
+</mapper>

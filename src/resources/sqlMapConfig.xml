@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <typeAliases>
+      	<typeAlias alias="Register" type="com.spring.Model.Register" />
+    	<typeAlias alias="Login" type="com.spring.Model.Login" />
+    		<typeAlias alias="College" type="com.spring.Model.College" />
+    			<typeAlias alias="Hospital" type="com.spring.Model.Hospital" />
+    			<typeAlias alias="Speciality" type="com.spring.Model.Speciality" />
+    			<typeAlias alias="Contact" type="com.spring.Model.Contact" />
+      </typeAliases>
+    
+    <mappers>
+    
+     	<mapper resource="Register-MyBatis.xml" />
+       <mapper resource="Login-MyBatis.xml" />	
+       <mapper resource="Contact-MyBatis.xml" />
+    </mappers>
+    
+</configuration>
