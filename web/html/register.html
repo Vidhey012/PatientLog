@@ -1,0 +1,255 @@
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
+
+
+<!-- JQuery -->
+<script src="/hospital/scripts/others/jquery-2.1.1.js"></script>
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  
+  
+  <style>
+
+.body {
+	color: #fff;
+	
+	font-family: 'Roboto', sans-serif;
+}
+.form-control {
+	min-height: 41px;
+	box-shadow: none;
+	border-color: none;
+	font-size: 14px;
+}
+.form-control, .btn {        
+	border-radius: 3px;
+}    
+.signup-form {
+	width: 400px;
+	margin: 0 auto;
+	padding: 0px 0;
+	 border-style: 1px groove;
+  border-color: grey;
+}	
+.signup-form form {
+	color: #9ba5a8;
+	border-radius: 3px;
+	margin-bottom: 15px;
+	background: lightgrey;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	padding: 30px;
+}
+.signup-form h2 {
+	color: #333;
+	font-weight: bold;
+	margin-top: 0;
+}
+.signup-form hr {
+	margin: 0 -30px 20px;
+}
+.signup-form .form-group {
+	margin-bottom: 20px;
+}
+.signup-form label {
+	font-weight: normal;
+	font-size: 13px;
+}
+.signup-form .btn, .signup-form .btn:active {        
+	font-size: 16px;
+	font-weight: bold;
+	background: green !important;
+	border: none;
+	min-width: 140px;
+}
+.signup-form .btn:hover, .signup-form .btn:focus {
+	<!--background: #3fc0ad !important;-->
+}
+.signup-form a {
+	color: #fff;
+	text-decoration: underline;
+}
+.signup-form a:hover {
+	text-decoration: none;
+}
+.signup-form form a {
+	color: #5fcaba;
+	text-decoration: none;
+}	
+.signup-form form a:hover {
+	text-decoration: underline;
+}
+
+</style>
+  
+  
+  <!-- CSS Files -->
+<link href="/hospital/css/angular-ui.min.css" rel="stylesheet">               
+
+<!-- Other Script Files  -->    
+<script type="text/javascript" src="/hospital/scripts/others/FileSaver.js"></script> 
+
+<!-- Custom Scripts -->
+
+<script type="text/javascript"	src="/hospital/scripts/custom/applicationregister.js"></script>
+
+
+
+ <div style="background: linear-gradient(45deg, #A2C7E5 20%,  #49D49D 50%);">
+  <br><br><br><br>
+   <div class="container">
+        <div id="formControllerDiv" data-ng-controller="FormController">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-6 align-content-left">
+                    <br>
+                    <br>
+                    <br>
+					<br>
+					<br>
+					
+                    
+<img src="/hospital/graphics/registerbg.png" width="470" height="700">
+                    <!--  <h1>Your health is our happiness</h1> -->
+
+                </div>
+
+<div class="body col-6">
+<br><br><br><br>
+<div data-ng-controller="RegistrationController" id="regid">
+<div class="signup-form">
+    <form>
+		<h2>Sign Up</h2>
+		<p class="text-success"></p>
+		<hr>
+        <div class="form-group">
+        	<input type="text" data-ng-model="data.object.username" class="form-control" name="Name" placeholder="Name" required pattern="[a-zA-Z'-'' ']{3,20}"  maxlength="30" pattern="[A-Za-z ]{3,30}"  title="Name Must Be Between 3 to 30 Characters without numbers" >
+        </div>
+		 <div class="form-group">
+        	<input type="text" class="form-control" data-ng-model="data.object.dob" name="Date Of Birth" placeholder="dd/mm/yyyy" required>
+        </div>
+		 <div class="form-group">
+		 <p class="text-dark">gender:    <input type="radio" name="gender" value="male" data-ng-model="data.object.gender" required> Male 
+			<input type="radio" name="gender" value="female" data-ng-model="data.object.gender" required> Female
+			<input type="radio" name="gender" value="Others" data-ng-model="data.object.gender" required> Others</p>
+		
+        </div>
+		 <div class="form-group"> 
+		 
+        	<input type="text" class="form-control" name="aadhar" placeholder="Aadhar Number" data-ng-model="data.object.aadhar" required maxlength="12"  pattern="[2-9]{1}[0-9]{11}" title="aadhar must be 12 digits without characters"> 
+			</div>
+		 <div class="form-group">
+        	<input type="text" class="form-control" name="mobile" placeholder="Mobile Number" data-ng-model="data.object.mobileno" maxlength="10" required pattern="[6-9]{1}[0-9]{9}" title="Mobile Number must start with 6-9 and it should be followed by 9 digits">
+        </div>
+        <div class="form-group">
+        	<input type="email" class="form-control" name="email" placeholder="Email Address"  data-ng-model="data.object.email" required pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z]{2,4}"  title="please enter a valid email">
+        </div>
+        <div class="form-group">
+        
+        <label for="Qualification"><b>Type:</b></label> <select
+class="form-control"
+data-ng-model="data.object.type">
+<option value="Patient">Patient</option>
+<option value="Doctor">Doctor</option>
+</select>
+        </div>
+         <div class="form-group" data-ng-show="data.object.type=='Patient'">
+         
+                <textarea class="form-control" data-ng-model="data.object.address" name="adress" rows="5"  data-msg="Enter your address" placeholder="Enter Your address"></textarea>
+              
+         </div>
+       
+          <div class="form-group" data-ng-show="data.object.type=='Doctor'">
+            <label
+					class="control-label col-md-2">District:</label>
+				   <div class="form-group">
+					<select class="form-control" data-ng-model="data.object.districtId" data-ng-change="getColleges(data.object);">
+						<option></option>
+						<option data-ng-repeat="district in districts" value="{{district.districtid}}">{{district.districtname}}</option>
+					</select>
+				</div>
+				
+				<label
+					class="control-label col-md-2">City:</label>
+				   <div class="form-group">
+						<select class="form-control" data-ng-model="data.object.collegeId" data-ng-change="getHospitals(data.object);">
+						<option></option>
+						<option data-ng-repeat="city in colleges" value="{{city.id}}">{{city.name}}</option>
+					</select>
+				</div>
+        <label
+					class="control-label col-md-2">Hospitals:</label>
+				   <div class="form-group">
+						<select class="form-control" data-ng-model="data.object.hospital" data-ng-change="getSpeciality(data.object);">
+						<option></option>
+						<option data-ng-repeat="hospitals in hospital1" value="{{hospitals.name}}">{{hospitals.name}}</option>
+					</select>
+				</div>
+         <label
+					class="control-label col-md-2">Speiality:</label>
+				   <div class="form-group">
+						<select class="form-control" data-ng-model="data.object.speciality">
+						<option></option>
+						<option data-ng-repeat="specialitys in speciality1" value="{{specialitys.name}}">{{specialitys.name}}</option>
+					</select>
+				</div>
+          
+         
+  
+        </div>
+        
+		<div class="form-group">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password" data-ng-model="data.object.password" required pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" title="Password must contain(UpperCase, LowerCase, Number/SpecialChar and min 8 Chars)">
+        </div>
+		<div class="form-group">
+            <input type="password" class="form-control" name="confirm_password"  id="confirm_password" placeholder="Confirm Password" required title="Enter The Same Password">
+        </div>
+		<div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block btn-lg" data-ng-click="registration(data.object);">Sign Up</button>
+        </div>
+		
+	<!--	<p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#">Terms &amp; Conditions</a>, and <a href="#">Privacy Policy</a>.</p>  -->
+    </form>
+	<!--  <div class="text-center">Already have an account? <a href="#">Login here</a></div>-->
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+
+jQuery(document).ready(function() {
+	
+	angular.bootstrap(jQuery("#regid"), [ 'RegistrationModule' ]);
+});
+
+
+</script>
+
+
+
+
+

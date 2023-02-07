@@ -1,0 +1,149 @@
+<script src="/hospital/scripts/general/UpdateModule.js"></script>
+<script src="/hospital/scripts/custom/applicationregister.js"></script>
+ <script src="/hospital/scripts/custom/navigate.js"></script>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
+
+<style>
+
+.body {
+	color: #fff;
+	background: lightgrey;
+	font-family: 'Roboto', sans-serif;
+}
+.form-control {
+	min-height: 41px;
+	box-shadow: none;
+	border-color: #e1e4e5;
+	font-size: 14px;
+}
+.form-control, .btn {        
+	border-radius: 3px;
+}    
+.signup-form {
+	width: 400px;
+	margin: 0 auto;
+	padding: 30px 0;
+}	
+.signup-form form {
+	color: #9ba5a8;
+	border-radius: 3px;
+	margin-bottom: 15px;
+	background: #fff;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	padding: 30px;
+}
+.signup-form h2 {
+	color: #333;
+	font-weight: bold;
+	margin-top: 0;
+}
+.signup-form hr {
+	margin: 0 -30px 20px;
+}
+.signup-form .form-group {
+	margin-bottom: 20px;
+}
+.signup-form label {
+	font-weight: normal;
+	font-size: 13px;
+}
+.signup-form .btn, .signup-form .btn:active {        
+	font-size: 16px;
+	font-weight: bold;
+	background: #5fcaba !important;
+	border: none;
+	min-width: 140px;
+}
+.signup-form .btn:hover, .signup-form .btn:focus {
+	background: #3fc0ad !important;
+}
+.signup-form a {
+	color: #fff;
+	text-decoration: underline;
+}
+.signup-form a:hover {
+	text-decoration: none;
+}
+.signup-form form a {
+	color: #5fcaba;
+	text-decoration: none;
+}	
+.signup-form form a:hover {
+	text-decoration: underline;
+}
+
+</style>
+<div>
+<br><br><br><br>
+<div data-ng-controller="RegController" id="reg">
+<div class="signup-form">
+    <form>
+		<h2>Edit profile</h2>
+		<p class="text-success"></p>
+		<hr>
+        <div class="form-group">
+        	<input type="text" data-ng-model="data.object.username" class="form-control" name="Name" placeholder="Name" required pattern="[a-zA-Z'-'' ']{3,20}"  maxlength="20" pattern="[A-Za-z ]{3,20}"  title="Name Must Be Between 3 to 20 Characters without numbers" >
+        </div>
+		 <div class="form-group">
+        	<input type="text" class="form-control" data-ng-model="data.object.dob" name="Date Of Birth" placeholder="Date Of Birth" required>
+        </div>
+		 <div class="form-group">
+		 <p class="text-dark">gender:    <input type="radio" name="gender" value="male" data-ng-model="data.object.gender" required> Male 
+			<input type="radio" name="gender" value="female" data-ng-model="data.object.gender" required> Female
+			<input type="radio" name="gender" value="Others" data-ng-model="data.object.gender" required> Others</p>
+		 
+        </div>
+		 <div class="form-group"> 
+		 
+        	<input type="text" class="form-control" name="aadhar" placeholder="Aadhar Number" data-ng-model="data.object.aadhar" required maxlength="12"  pattern="[2-9]{1}[0-9]{11}" title="aadhar must be 12 digits without characters"> 
+			</div>
+		 <div class="form-group">
+        	<input type="text" class="form-control" name="mobile" placeholder="Mobile Number" data-ng-model="data.object.mobileno" maxlength="10" required pattern="[6-9]{1}[0-9]{9}" title="Mobile Number must start with 6-9 and it should be followed by 9 digits">
+        </div>
+        <div class="form-group">
+        	<input type="email" class="form-control" name="email" placeholder="Email Address"  data-ng-model="data.object.email" required pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z]{2,4}"  title="please enter a valid email">
+        </div>
+        <div class="form-group">
+        
+        <label for="Qualification"><b>Type:</b></label> <select
+class="form-control"
+data-ng-model="data.object.type">
+<option value="Patient">Patient</option>
+<option value="Doctor">Doctor</option>
+</select>
+</div>
+<div class="form-group" data-ng-show="data.object.type=='Patient'">
+         
+                <textarea class="form-control" data-ng-model="data.object.address" name="adress" rows="5"  data-msg="Enter your address" placeholder="Enter Your address"></textarea>
+              
+         </div>
+       
+       
+        
+		<div class="form-group">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password" data-ng-model="data.object.password" required pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" title="Password must contain(UpperCase, LowerCase, Number/SpecialChar and min 8 Chars)">
+        </div>
+		<div class="form-group">
+            <input type="password" class="form-control" name="confirm_password"  id="confirm_password" placeholder="Confirm Password" required title="Enter The Same Password">
+        </div>
+		<div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block btn-lg" data-ng-click="updateData(data.object);">Edit Details</button>
+        </div>
+		
+	<!--	<p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#">Terms &amp; Conditions</a>, and <a href="#">Privacy Policy</a>.</p>  -->
+    </form>
+	<!--  <div class="text-center">Already have an account? <a href="#">Login here</a></div>-->
+</div>
+
+ <script type="text/javascript">
+			jQuery(document).ready(function() {
+				/* $("#passwordId").hide(); */
+				angular.bootstrap(jQuery("#reg"), [ 'UpdateModule' ]);
+			});
+		</script>
+</div>
+</div>

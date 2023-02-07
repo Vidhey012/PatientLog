@@ -1,0 +1,121 @@
+<script src="/hospital/scripts/custom/formModule.js"></script>
+
+<script src="/hospital/js/jquery-3.2.1.min.js"></script>
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+ 
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  
+  
+ 
+<!-- Other Script Files  -->    
+<script type="text/javascript" src="/hospital/scripts/others/FileSaver.js"></script> 
+<script src="/hospital/scripts/common/formModule.js"></script>
+
+<!-- Custom Scripts -->
+
+
+<div style="background: linear-gradient(45deg, #49D49D 30%,  lightgrey 50%);">
+  <br><br><br><br>
+   <div class="container">
+        <div id="formControllerDiv" data-ng-controller="FormController">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-6 align-content-left">
+                    <br>
+                    <br>
+                    
+
+                    
+<img src="/hospital/graphics/loginbg.png" height="450" width="500" style="padding-bottom:30px">
+                    <!--  <h1>Your health is our happiness</h1> -->
+
+                </div>
+                <div class="col-lg-6 col-md-6 align-content-center">
+				<br>
+                    <div role="dialog">
+                        <div class="modal-dialog float-right modal-content">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title">Login Form</h3>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="panel panel-success">
+                                        <div class="panel-body">
+
+                                            <form>
+                                                <br>
+
+                                               <div class="row">
+                                                <div class="col-md-3">
+                                                <label class="control-label center col-md-5">Email:</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" data-ng-model="data.object.email" name="id">
+                                                </div>
+                                                </div>
+												<br>
+
+                                               <div class="row">
+                                               <div class="col-md-3">
+                                               <label class="control-label col-md-4">Password:</label>
+                                               </div>
+                                                <div class="col-md-6">
+                                                    <input type="password" class="form-control" data-ng-model="data.object.password">
+                                                </div>
+                                                </div>
+
+
+                                                <br>
+                                            </form>
+
+
+
+                                        </div>
+
+                                        <div class="modal-footer">
+                                        <span class="psw">Forgot <a href="#" style="color:blue;" onclick="Andromeda.showForgotPasswordPage();">password?</a></span>
+                                            <button type="button" class="btn btn-primary" data-ng-click="login(data.object);" style="width: 100px">Login</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+ </div>
+ </div>
+ </div>
+ <script type="text/javascript">
+ jQuery(document).ready(function() {
+		$("#errorDiv").hide();
+		$("#passwordId").keyup(function(event) {
+			if (event.keyCode == 13) {
+				$("#loginBtn").click();
+			}
+		});
+		angular.bootstrap(jQuery("#formControllerDiv"), [ 'formModule' ]);
+	});
+	jQuery("#submit").click(function() {
+		jQuery("#spinner").addClass("glyphicon glyphicon-refresh glyphicon-refresh-animate");
+	});   
+		</script>

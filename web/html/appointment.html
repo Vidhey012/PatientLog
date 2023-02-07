@@ -1,0 +1,177 @@
+ <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+<script src="/hospital/scripts/general/UpdateModule.js"></script>
+ <script src="/hospital/scripts/custom/navigate.js"></script>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+</style>
+<!-- Other Script Files  -->    
+<script type="text/javascript" src="/hospital/scripts/others/FileSaver.js"></script> 
+
+<!-- Custom Scripts -->
+
+<script type="text/javascript"	src="/hospital/scripts/custom/applicationregister.js"></script>
+
+ <div data-ng-controller="RegistrationController" id="regid" style="background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);font-family: 'Open Sans', sans-serif;font-family: 'Open Sans', sans-serif;" data-ng-controller="RegController" id="reg">
+<section id="appointments" >
+      <div class="container">
+
+        <div class="section-title">
+        <br><br><br><br>
+          <h2>Appointments</h2>
+          <i size="20px">Make your appointments Easier through simple following step by providing required details.</i>
+        </div>
+
+       <div class="row">
+
+                <div class="col-lg-6 col-md-6 align-content-left">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+
+                    
+<img src="/hospital/graphics/appointmentbg.png" height="450" width="500" style="padding-bottom:30px">
+                    <!--  <h1>Your health is our happiness</h1> -->
+
+                </div>
+				
+				
+				 <div class="col-lg-6 col-md-6 align-content-center">
+				<br>
+                    <div role="dialog">
+                        <div class="modal-dialog float-right modal-content">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title">Appointment Form</h3>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="panel panel-success">
+                                        <div class="panel-body">
+
+                                            <form>
+                                                <br>
+
+                                               <div class="row">
+                                                <div class="col-md-3">
+                                                <label class="control-label center col-md-5">Email:</label>
+                                                </div>
+                                                <div class="col-md-6 form-group">
+                                                   <input type="email" class="form-control" name="email" placeholder="Email Address"  data-ng-model="data.object.email" required pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z]{2,4}"  title="please enter a valid email">
+                                                </div>
+                                                </div>
+												<br>
+
+                                               <div class="row">
+                                               <div class="col-md-3">
+                                               <label class="control-label col-md-4">Name:</label>
+                                               </div>
+                                                <div class="col-md-6 form-group">
+                                                   
+        											<input type="text" data-ng-model="data.object.username" class="form-control" name="Name" placeholder="Name" required pattern="[a-zA-Z'-'' ']{3,20}"  maxlength="20" pattern="[A-Za-z ]{3,20}"  title="Name Must Be Between 3 to 20 Characters without numbers" >
+        
+                                                </div>
+                                                </div>                                               
+                                                <div class="row">
+                                               <div class="col-md-3">
+                                               <label class="control-label col-md-4">Mobileno:</label>
+                                               </div>
+                                                <div class="col-md-6 form-group">
+                                                   
+        											<input type="text" class="form-control" name="mobile" placeholder="Mobile Number" data-ng-model="data.object.mobileno" maxlength="10" required pattern="[6-9]{1}[0-9]{9}" title="Mobile Number must start with 6-9 and it should be followed by 9 digits">
+        
+                                                </div>
+                                                </div>
+                                                
+              <div class="row">
+              <div class="col-md-3">                                  
+          <label
+					class="control-label col-md-3">Problem:</label>
+					</div>
+				   <div class="form-group">
+					<select class="form-control" data-ng-model="data.object.problem" data-ng-change="getData1(data.object);">
+						<option></option>
+						<option data-ng-repeat="problems in problem" value="{{problems.name}}">{{problems.name}}</option>
+					</select>
+				</div>
+
+         </div>
+         <div  data-ng-show="data.object.problem">
+             <div class="row">
+              <div class="col-md-3">                                  
+          <label
+					class="control-label col-md-3">Hospital:</label>
+					</div>
+				   <div class="form-group">
+					<select class="form-control" data-ng-model="data.object.hospital" data-ng-change="getData2(data.object);">
+						<option></option>
+						<option data-ng-repeat="hospital1 in data1" value="{{hospital1.hname}}">{{hospital1.hname}}</option>
+					</select>
+				</div>
+				</div>
+				<div class="row">
+				<div class="col-md-3">                                  
+          <label
+					class="control-label col-md-3">Doctor:</label>
+					</div>
+				   <div class="form-group">
+					<select class="form-control" data-ng-model="data.object.doctor">
+						<option></option>
+						<option data-ng-repeat="app in appointment" value="{{app.username}}">{{app.username}}</option>
+					</select>
+				</div>
+
+         </div>
+         
+         <div class="row" data-ng-show="data.object.hospital">
+				<div class="col-md-3">     
+				                             
+          <label
+					class="control-label col-md-3">Date</label>
+					</div>
+				   <div class="form-group">
+					<input type="date"  class="form-control"  data-ng-model="data.object.date" required/>
+				</div>
+
+         </div>
+         </div>
+        
+
+                                                <br>
+                                            </form>
+
+
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-ng-click="addappointment(data.object);" style="width: 200px">RequestAppointment</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+		</div>
+    </section><!-- End Services Section -->
+</div>
+
+<script>
+
+jQuery(document).ready(function() {
+	
+	angular.bootstrap(jQuery("#regid"), [ 'RegistrationModule' ]);
+});
+
+
+</script>
+
+

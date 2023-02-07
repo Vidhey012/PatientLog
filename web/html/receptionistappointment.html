@@ -1,0 +1,217 @@
+<html>
+
+<head>
+    
+
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+ <script src="/hospital/scripts/custom/navigate.js"></script>
+
+    <style>
+        body {
+            background-image: url('assets/img/vasu1.jpg');
+            background-repeat: no-repeat;
+            background-size: 1500px 1000px;
+        }
+    </style>
+
+  <!-- CSS Files -->
+<link href="/hospital/css/angular-ui.min.css" rel="stylesheet">               
+
+<!-- Other Script Files  -->    
+<script type="text/javascript" src="/hospital/scripts/others/FileSaver.js"></script> 
+
+<!-- Custom Scripts -->
+
+<script type="text/javascript"	src="/hospital/scripts/custom/applicationregister.js"></script>
+<script type="text/javascript"	src="/hospital/scripts/general/UpdateModule.js"></script>
+</head>
+
+<body>
+<div style="background: linear-gradient(45deg, #A2C7E5 30%,  lightgrey 50%);" id="regid" data-ng-controller="RegistrationController"> 
+<br>
+<br>
+<center><h1 style="font-family:gabriola;color:#dc143c">--Fixing Appointment Timings--</h1></center>    
+<br>
+<br>
+<center>
+<table id="myTable" class=" table order-list">
+        <div class="mb-3">
+            <thead class="mt-5 bg-info">
+                <tr>
+                    <td>
+                        <h3>Hospital</h3>
+                    </td>
+                    <td>
+                        <h3>Specialist</h3>
+                    </td>
+                    <td>
+                        <h3>Doctor</h3>
+                    </td>
+                    <td>
+                        <h3>Date</h3>
+                    </td>
+                    
+                    <td>
+                        <h3>Action</h3>
+                    </td>
+
+                </tr>
+            </thead>
+        </div>
+        <tbody>
+            <tr>
+                <td class="col-md-2">
+                    <div>
+
+                      <input type="text" data-ng-model="data.object.hospital"  class="form-control" name="hospitalname" placeholder="Hospital Name" disabled/>
+
+                    </div>
+                </td>
+         
+                <td class="col-md-2">
+
+                   <select class="form-control" data-ng-model="data.object.problem" data-ng-change="getData2(data.object);">
+						<option></option>
+						<option data-ng-repeat="problems in problem" value="{{problems.name}}">{{problems.name}}</option>
+					</select>
+                </td>
+                <td class="col-md-2">
+
+                  <select class="form-control" data-ng-model="data.object.doctor">
+						<option></option>
+						<option data-ng-repeat="app in appointment" value="{{app.username}}">{{app.username}}</option>
+					</select>
+                </td>
+                <td class="col-md-2">
+
+                    <input type="date"  class="form-control"  data-ng-model="data.object.date" required/>
+                </td>
+
+                <td class="col-md-2">
+                    <input type="button" class="btn btn-lg btn-block btn btn-success" data-ng-click="getDoctorAppointment(data.object)" value="GetAppointment" />
+                </td>
+            </tr>
+            <br>
+            <br>
+            
+            
+        </tbody>
+       
+
+    </table>
+    </center>
+    <br>
+    <br>
+    <br>
+    <table id="myTable" class=" table order-list">
+        <div class="mb-3">
+            <thead class="mt-5 bg-info">
+                <tr>
+                    <td>
+                        <h3>Name</h3>
+                    </td>
+                    <td>
+                        <h3>email</h3>
+                    </td>
+                    <td>
+                     <h3>Problem</h3>
+                     </td>
+                    <td>
+                        <h3>Doctor</h3>
+                    </td>
+                    <td>
+                        <h3>Date</h3>
+                    </td>
+                    <td>
+                        <h3>Time</h3>
+                    </td>
+
+                    <td>
+                        <h3>Action</h3>
+                    </td>
+
+                </tr>
+            </thead>
+        </div>
+        <tbody>
+            <tr data-ng-repeat="userdata in dappointments">
+                <td class="col-md-2">
+                    <div>
+<input type="text" data-ng-model="userdata.username" class="form-control" name="Name" placeholder="Name" required pattern="[a-zA-Z'-'' ']{3,20}"  maxlength="20" pattern="[A-Za-z ]{3,20}"  title="Name Must Be Between 3 to 20 Characters without numbers" diabled/>
+
+                    </div>
+                </td>
+                <td class="col-md-2">
+                    <div>
+
+                        <div class="form-group">
+						<input type="email" class="form-control" name="email" placeholder="Email Address"  data-ng-model="userdata.email" required pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-zA-Z]{2,4}"  title="please enter a valid email" disabled/>
+                    </div>
+                </td>
+                <td class="col-md-2">
+
+                    <input type="text" name="Problemname" placeholder="Problem Name" class="form-control" data-ng-model="userdata.speciality" data-ng-value="userdata.speciality" disabled/>
+                </td>
+                <td class="col-md-2">
+
+                   <input type="email" class="form-control" name="doctor" placeholder="Doctor name"  data-ng-model="userdata.doctor" required disabled/>
+                </td>
+                <td class="col-md-2">
+               	<input type="text"  class="form-control"  data-ng-model="userdata.date" required disabled/>
+                </td>
+                <td class="col-md-2">
+
+                    	<select class="form-control" data-ng-model="userdata.time" >
+						<option>09:00 A.M</option>
+						<option>10:00 A.M</option>
+						<option>11:00 A.M</option>
+						<option>01:00 P.M</option>
+						<option>02:00 P.M</option>
+						<option>03:00 P.M</option>
+						<option>04:00 P.M</option>
+						<option>05:00 P.M</option>
+						<option>06:00 P.M</option>
+						<option>07:00 P.M</option>
+						
+					</select>
+                </td>
+
+                <td class="col-md-2">
+                    <input type="button" class="btn btn-lg btn-block btn btn-success" data-ng-click="setDoctorsAppointment(userdata)" value="SetAppointMent" />
+                </td>
+            </tr>
+            <br>
+            <br>
+            <br>
+            
+        </tbody>
+       
+
+    </table>
+    </center>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+
+<script>
+
+jQuery(document).ready(function() {
+	
+	angular.bootstrap(jQuery("#regid"), [ 'RegistrationModule' ]);
+});
+
+
+</script>
+</body>
+
+</html>

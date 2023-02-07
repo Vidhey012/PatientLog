@@ -1,0 +1,88 @@
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- <script src="/hospital/js/jquery-3.2.1.min.js"></script>
+<script src="/hospital/js/bootstrap.min.js"></script>
+<script src="/hospital/js/mixitup.min.js"></script>
+<script src="/hospital/js/circle-progress.min.js"></script>
+<script src="/hospital/js/owl.carousel.min.js"></script>
+<script src="/hospital/js/main.js"></script> -->
+<script src="/hospital/scripts/custom/ContactModule.js"></script>
+
+<style>    
+.fa-trash:hover{
+color:red;
+}
+.fa-paper-plane:hover{
+color:blue;
+}
+         
+.panel {   
+height: 320px;
+}    
+
+.panel-heading {
+text-align: center;
+font-size: 19px;    
+}
+.btn{
+  padding: 2px 4px;
+}
+.table>tbody>tr>td{
+    padding:6px;            
+}
+.con{
+padding-top:15%;
+}
+</style>
+
+<div>
+<div id="cond" data-ng-controller="ContactController" class="con">
+<center><h1 style="font-family:gabriola;color:#dc143c">--Feedback details--</h1></center>                     
+<div class="container"><br><br>
+<div id="viewdiv">
+<table class="table table-bordered">
+<tr style='background-color: ghostwhite'>
+<th>name</th>
+<th>email</th>
+
+<th>subject</th>
+
+<th>message</th>
+<th></th>
+</tr>
+<tr data-ng-repeat="feedback in feedbacks">
+<td>{{feedback.name}}</td>
+<td>{{feedback.email}}</td>
+
+<td>{{feedback.subject}}</td>
+
+<td>{{feedback.feedback}}</td>
+<td><a data-ng-click="sendReply(feedback);">
+     /\
+     </a>
+     <a data-ng-click="deleteFeedback(feedback);">
+     DEl
+     </a>
+     </td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<br>
+      </div>
+</div>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+
+angular.bootstrap(jQuery("#cond"), [ 'ContactModule' ]);
+});
+</script>
+</div>
+</div>

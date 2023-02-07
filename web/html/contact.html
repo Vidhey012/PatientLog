@@ -1,0 +1,119 @@
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Other Script Files  -->    
+
+<script src="/hospital/scripts/custom/ContactModule.js"></script>
+
+
+  
+
+<div style="background-color:lightgrey">
+ 
+  <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+        <br><br><br><br>
+          <h2>Contact</h2>
+          <p>The sorrows of a great advantage to raise up. Him, indeed, to the necessities of the flight of his is a result of something. Let there be consectetur velit. Anyone whom the one with greed. And no one has to prevent a receives the rest, for the. Because this man did flee from the duties in the advantage, we realize that this is a quas.</p>
+        </div>
+      </div>
+
+      <div>
+        <iframe width="1500" height="530" id="gmap_canvas" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d61204.53650589854!2d80.60912690422727!3d16.511777583759955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1svijayawada%20hospitals!5e0!3m2!1sen!2sin!4v1609240165797!5m2!1sen!2sin" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    
+      </div>
+
+      <div class="container">
+      <div id="post_data"  data-ng-controller="ContactController" class="contact_form_container">
+        <div class="row mt-5">
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <h4>Location:</h4>
+                <p>Vijayawada, Andhra Pradesh, India</p>
+              </div>
+
+              <div class="email">
+                <h4>Email:</h4>
+                <p>patientlog@gmail.com</p>
+              </div>
+
+              <div class="phone">
+                <h4>Call:</h4>
+                <p>+1 5589 55488 55s</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+         
+            <form action="post">
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" data-ng-model="data.object.name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validate"></div>
+                </div>
+                <div class="col-md-6 form-group">
+                  <input type="email" class="form-control" data-ng-model="data.object.email" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" data-ng-model="data.object.subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" data-ng-model="data.object.feedback" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button data-ng-click="insertFeedback(data.object);" type="button" class="btn btn-primary" value="Submit"">Send Message</button></div>
+            </form>
+          </div>
+
+       
+
+      </div>
+    </section><!-- End Contact Section -->
+    </div>
+     </div>
+    </div>
+  
+  
+<script type="text/javascript">
+			jQuery(document).ready(function() {
+				angular.bootstrap(jQuery("#post_data"), [ 'ContactModule' ]);
+			});
+		</script>
+</div>
+
+
+
+

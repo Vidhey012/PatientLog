@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ApplicationRegister">
+
+<insert id="InsertData" parameterType="map">
+
+insert into public.register( username,dob,gender,aadhar,mobileno,type,email,password,hospital,speciality,districtid,collegeId,address) values(#{T.username},#{T.dob},#{T.gender},#{T.aadhar},#{T.mobileno},#{T.type},#{T.email},#{T.password},#{T.hospital},#{T.speciality},#{T.districtId},#{T.collegeId},#{T.address});
+
+</insert>
+<insert id="insertHospitals" parameterType="map">
+        insert into public.hospital( name,cityid ) values(#{T.hospital},#{T.collegeId});
+</insert>
+<insert id="addHospitalDetails" parameterType="map">
+        insert into public.hospital_mst( username,type,email,password,hospital,districtid,collegeid ) values(#{T.username},#{T.type},#{T.email},#{T.password},#{T.hospital},#{T.districtId},#{T.collegeId});
+</insert>
+<select id="viewaccounts" resultType="Register">
+		select username,dob,gender,aadhar,mobileno,email,type,password,hospital,speciality,districtid,collegeid,address from public.register;
+</select> 
+
+<select id="getDetails" resultType="Register">
+		select username,dob,gender,aadhar,mobileno,email,type,password,speciality,districtid,collegeid,address from public.register where aadhar=#{T.aadhar};
+</select>
+
+<update id="updateDetails"  parameterType="map">
+		update public.register SET username=#{T.username},dob=#{T.dob},gender=#{T.gender},aadhar=#{T.aadhaar},mobileno=#{T.mobileno},email=#{T.email},password=#{T.password},hospital=#{T.hospital},speciality=#{T.speciality},districtid=#{T.districtId},collegeid=#{T.collegeId},address=#{T.address} WHERE email=#{T.email};
+</update>
+
+<select id="checkStudent" parameterType="map" resultType="java.lang.Integer">
+	select count(*) from public.register where email = #{T.email};
+	
+</select>
+
+<select id="getById" resultType="Register">
+		SELECT username,dob,gender,aadhar,mobileno,type,email,password,hospital,speciality,districtid,collegeid,address from public.register WHERE email= #{email};
+</select>  
+            
+<update id="updateData" parameterType="map">
+	update public.register SET username=#{T.username},dob=#{T.dob},gender=#{T.gender},aadhar=#{T.aadhaar},mobileno=#{T.mobileno},email=#{T.email},password=#{T.password},hospital=#{T.hospital},speciality=#{T.speciality},districtid=#{T.districtId},collegeid=#{T.collegeId},address=#{T.address} WHERE email=#{T.email};     
+</update>
+	  <update id="changeData"  parameterType="map">
+		update public.register SET
+		password=#{p.password} WHERE email=#{p.email};
+	</update>
+
+<delete id="removeDetails" parameterType="java.lang.String">
+		delete from public.register where aadhar=#{aadhar};
+</delete>
+
+<select id="CheckRegistertaion" parameterType="map"
+		resultType="java.lang.Integer">
+		select count(*) from public.register WHERE
+		username=#{p.username} AND password=#{p.password};    
+	</select>
+
+	<select id="getUserDetails" parameterType="map"
+		resultType="Register">
+		select username,password from public.register where
+		username=#{username};
+	</select>
+	<select id="verifyEmail" parameterType="java.lang.String"	resultType="java.lang.Integer">
+		select count(*) from public.register WHERE email=#{email};
+</select>
+
+<select id="getPersonDetails" parameterType="java.lang.String"	resultType="Register">
+	select password,email from public.register where email=#{email};
+</select>
+
+<update id="changePassword"  parameterType="map">
+		update public.register SET password=#{T.password} WHERE username=#{T.username};
+</update>
+<select id="getDistricts" resultType="map">
+		select districtid, districtname from public.district_mst;
+	</select>
+	<select id="getProblems" resultType="map">
+		select name from public.problems;
+	</select>
+	
+	<select id="getColleges" parameterType="map" resultType="College">
+		select id, name from public.city where districtid = #{districtId} order by name;
+	</select>
+	<select id="getHospitals" parameterType="map" resultType="Hospital">
+		select cityid,name from public.hospital where cityid= #{collegeId} order by name;
+	</select>
+	<select id="getSpeciality" parameterType="map" resultType="Speciality">
+		select hname,name from public.speciality where hname= #{hospital} order by name;
+	</select>
+		<select id="getData1" parameterType="map" resultType="Speciality">
+		select hname,name from public.speciality where name= #{problem} order by name;
+	</select>
+		<select id="getData2" parameterType="map" resultType="Register">
+		select username from public.register where speciality= #{problem} AND hospital=#{hospital} order by username;
+	</select>
+<select id="getHospitalDetails" resultType="Register">
+		select email,password,districtid,collegeid,hospital from public.hospital_mst;
+		
+</select>
+<insert id="addappointment" parameterType="map">
+
+insert into public.appointment( username,mobileno,email,hospital,speciality,date,doctor,status) values(#{T.username},#{T.mobileno},#{T.email},#{T.hospital},#{T.problem},#{T.date},#{T.doctor},#{T.status});
+
+</insert>
+<select id="checkappointments" parameterType="map" resultType="java.lang.Integer">
+		select count(*) from public.appointment WHERE date::date=#{T.date};
+</select>
+<select id="getDoctorAppointment" parameterType="map" resultType="Register">
+		select username,email,speciality,doctor,date::date from public.appointment where hospital= #{hospital} AND speciality=#{problem} AND doctor=#{doctor} AND date=#{date} AND status=#{status} order by username;
+	</select>
+	<update id="setDoctorsAppointment"  parameterType="map">
+		update public.appointment SET time=#{T.time} , status=#{T.status} WHERE username=#{T.username}  AND speciality=#{T.speciality} AND doctor=#{T.doctor} AND email=#{T.email} ;
+</update>
+<insert id="addTreatmentData" parameterType="map">
+
+insert into public.speciality(name,hname) values(#{T.name},#{T.hospital});
+
+</insert>
+<select id="getAppointments" parameterType="map" resultType="Register">
+		select username,email,mobileno,speciality,date::date,time from public.appointment where hospital= #{hospital} AND speciality=#{speciality} AND doctor=#{username} AND date=#{date} AND status=#{status} order by username;
+	</select>
+	<delete id="delAppointment"  parameterType="map">
+		delete from public.appointment  WHERE username=#{T.username} AND email=#{T.email} AND speciality=#{T.speciality} AND mobileno=#{T.mobileno} AND date=#{T.date}  ;
+</delete>
+
+</mapper>

@@ -1,0 +1,106 @@
+<html>
+
+<head>
+    
+
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+
+    <style>
+        body {
+            background-image: url('assets/img/vasu1.jpg');
+            background-repeat: no-repeat;
+            background-size: 1500px 1000px;
+        }
+    </style>
+
+  <!-- CSS Files -->
+<link href="/hospital/css/angular-ui.min.css" rel="stylesheet">               
+
+<!-- Other Script Files  -->    
+<script type="text/javascript" src="/hospital/scripts/others/FileSaver.js"></script> 
+
+<!-- Custom Scripts -->
+
+<script type="text/javascript"	src="/hospital/scripts/custom/applicationregister.js"></script>
+</head>
+
+<body>
+<div style="background: linear-gradient(45deg, #A2C7E5 30%,  lightgrey 50%);" id="regid" data-ng-controller="RegistrationController"> 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center><h1 style="font-family:gabriola;color:#dc143c">--Add Treatments--</h1></center>    
+<br>
+<br>
+    <div class="container" >
+   <table text-align="center"  id="myTable" class=" table order-list" >
+
+        <tr>
+             <td><h3>Hospital</h3></td>
+            <td><h3>Specification</h3></td>
+            <td><h3>Action </h3></td>
+			
+			
+        </tr>
+
+        <tr>
+            <td class="col-md-2" text-align="center">
+                <input type="text" name="hospital" data-ng-model="data.object.hospital" placeholder="Hospital" class="form-control" disabled/>
+            </td>
+            <td class="col-md-2" text-align="center">
+                <div>
+   
+      <select class="form-control" data-ng-model="data.object.name">
+						<option></option>
+						<option data-ng-repeat="problems in problem" value="{{problems.name}}">{{problems.name}}</option>
+					</select>
+    </div>
+            </td>
+         
+             <td class="col-md-2" >
+               <input text-align="center" type="button" data-ng-click="addTreatmentData(data.object);" class="btn btn-lg btn-block btn btn-primary" id="addrow" value="Add" />
+            </td>
+        </tr>
+		
+		
+		
+		
+		
+		
+		
+		
+    
+    
+    
+</table>
+
+  </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
+<script>
+
+jQuery(document).ready(function() {
+	
+	angular.bootstrap(jQuery("#regid"), [ 'RegistrationModule' ]);
+});
+
+
+</script>
+</body>
+
+</html>
